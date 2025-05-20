@@ -1,2 +1,4 @@
 .env
 rclone.conf
+pg_dumps
+restore
