@@ -1,0 +1,1 @@
+* */12 * * * /scripts/pg_backup.sh >> /var/log/pg_backup.log 2>&1

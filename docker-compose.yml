@@ -1,0 +1,12 @@
+services:
+  backup_db:
+    image: f4b1002/dbk
+    build:
+      context: .
+    container_name: dbk
+    networks:
+      - backup
+
+networks:
+  backup:
+    driver: bridge
