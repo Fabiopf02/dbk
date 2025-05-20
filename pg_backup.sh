@@ -51,8 +51,13 @@ PGPASSWORD=$DB_PASSWORD pg_dump \
 
 log "Dump concluído: $DUMP_FILE"
 
-rclone copy "$DUMP_FILE" s3:"$S3_BUCKET"/"$S3_PATH"/ 2>&1 | tee -a /var/log/pg_backup_error.log
-rclone copy "$DUMP_FILE" gdrive:"$GDRIVE_PATH"/ 2>&1 | tee -a /var/log/pg_backup_error.log
+if [ -n "$S3_PATH" ]; then
+  rclone copy "$DUMP_FILE" s3:"$S3_PATH"/ 2>&1 | tee -a /var/log/pg_backup_error.log
+fi
+
+if [ -n "$GDRIVE_PATH" ]; then
+  rclone copy "$DUMP_FILE" gdrive:"$GDRIVE_PATH"/ 2>&1 | tee -a /var/log/pg_backup_error.log
+fi
 
 # Limpa dumps antigos: 5 dias
 find /pg_dumps -type f -mtime +5 -name "pg_dump_*" -exec rm {} \;

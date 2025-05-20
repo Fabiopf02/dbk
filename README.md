@@ -36,8 +36,7 @@ DB_PASSWORD=secret
 DB_NAME=mydb
 DB_PORT=5432
 
-S3_BUCKET=my-bucket
-S3_PATH=dumps
+S3_PATH=bucket_name/dumps # start with bucket name
 GDRIVE_PATH=dumps
 
 CRON_SCHEDULE=0 3 * * *
@@ -78,17 +77,16 @@ docker compose build
 
 ## Environment Variables
 
-| Variable        | Description                                  | Required    | Example                       |
-|-----------------|----------------------------------------------|-------------|-------------------------------|
-| DB_HOST         | Database host                                | Yes         | `my_postgres`                 |
-| DB_USER         | Database user                                | Yes         | `postgres`                    |
-| DB_PASSWORD     | Database password                            | Yes         | `mypassword`                  |
-| DB_NAME         | Database name                                | Yes         | `mydb`                        |
-| DB_PORT         | Database port                                | No          | `5432`                        |
-| CRON_SCHEDULE   | Backup schedule (cron)                       | No          | `0 3 * * *`                   |
-| S3_BUCKET       | S3 bucket for backup                         | No          | `my-bucket`                   |
-| S3_PATH         | S3 path                                      | No          | `dumps`                       |
-| GDRIVE_PATH     | Google Drive path                            | No          | `dumps`                       |
+| Variable        | Description                                  | Required    | Example                                |
+|-----------------|----------------------------------------------|-------------|----------------------------------------|
+| DB_HOST         | Database host                                | Yes         | `my_postgres`                          |
+| DB_USER         | Database user                                | Yes         | `postgres`                             |
+| DB_PASSWORD     | Database password                            | Yes         | `mypassword`                           |
+| DB_NAME         | Database name                                | Yes         | `mydb`                                 |
+| DB_PORT         | Database port                                | No          | `5432`                                 |
+| CRON_SCHEDULE   | Backup schedule (cron)                       | No          | `0 3 * * *`                            |
+| S3_PATH         | S3 path                                      | No          | `bucket_name/dumps`                    |
+| GDRIVE_PATH     | Google Drive path                            | No          | `dumps`                                |
 | WEBHOOK_URL     | Discord webhook URL (notifications)          | No          | `https://discord.com/api/webhooks/...` |
 
 ---
