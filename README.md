@@ -64,7 +64,7 @@ docker run -d \
   --name dbk \
   --env-file .env \
   -v $(pwd)/pg_dumps:/pg_dumps \
-  -v $(pwd)/rclone.conf:/root/.config/rclone \
+  -v $(pwd)/rclone.conf:/root/.config/rclone/rclone.conf \
   --network db-network \
   f4b1002/dbk:latest
 ```
