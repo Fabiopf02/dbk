@@ -21,7 +21,7 @@ This container periodically backs up PostgreSQL databases (or others, if adapted
 
 ### 2. Using the published image
 
-Pull the image from Docker Hub (or another registry):
+Pull the image from Docker Hub:
 
 ```sh
 docker pull f4b1002/dbk:latest
