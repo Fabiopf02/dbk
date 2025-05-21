@@ -1,4 +1,4 @@
-# backup-db
+# dbk
 
 Automated backup for databases running in Docker containers, with support for cron scheduling, S3/Google Drive upload, and Discord notifications.
 
@@ -84,10 +84,10 @@ docker compose build
 | DB_PASSWORD     | Database password                            | Yes         | `mypassword`                           |
 | DB_NAME         | Database name                                | Yes         | `mydb`                                 |
 | DB_PORT         | Database port                                | No          | `5432`                                 |
-| CRON_SCHEDULE   | Backup schedule (cron)                       | No          | `0 3 * * *`                            |
+| CRON_SCHEDULE   | Backup schedule (cron)                       | Yes         | `0 3 * * *`                            |
 | S3_PATH         | S3 path                                      | No          | `bucket_name/dumps`                    |
 | GDRIVE_PATH     | Google Drive path                            | No          | `dumps`                                |
-| WEBHOOK_URL     | Discord webhook URL (notifications)          | No          | `https://discord.com/api/webhooks/...` |
+| WEBHOOK_URL     | Discord webhook URL (notifications, optional) | No          | `https://discord.com/api/webhooks/...` |
 
 ---
 

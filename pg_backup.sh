@@ -15,9 +15,11 @@ notify_discord() {
   local STATUS=$1
   local MESSAGE=$2
 
-  curl -s -X POST "$WEBHOOK_URL" \
-    -H "Content-Type: application/json" \
-    -d "{\"content\":\":floppy_disk:  **Backup PostgreSQL**   |   $STATUS\n$MESSAGE\"}"
+  if [ -n "$WEBHOOK_URL" ]; then
+    curl -s -X POST "$WEBHOOK_URL" \
+      -H "Content-Type: application/json" \
+      -d "{\"content\":\":floppy_disk:  **Backup PostgreSQL**   |   $STATUS\n$MESSAGE\"}"
+  fi
 }
 
 handle_error() {
