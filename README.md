@@ -24,7 +24,7 @@ To use Google Drive or S3 as backup destinations, you must provide a valid `rclo
 - For Google Drive: [rclone Google Drive documentation](https://rclone.org/drive/)
 - For S3 (Amazon or compatible): [rclone S3 documentation](https://rclone.org/s3/)
 
-> **After generating your `rclone.conf`:** Keep your `rclone.conf` file in the same directory where you run your `docker run` or `docker compose` commands. This makes it easier to mount the file as a volume in your container, as shown in the usage examples below. The same file will be used in the next steps to enable backup to cloud providers.
+> **After generating your `rclone.conf`:** Place the `rclone.conf` file inside a directory named `rclone` (for example, `./rclone/rclone.conf`). This directory should be in the same location where you run your `docker run` or `docker compose` commands. This way, you can mount the entire `rclone` directory as a volume into the container, as shown in the usage examples below. The configuration file will be used to enable backup to cloud providers.
 
 ---
 
@@ -64,8 +64,8 @@ docker run -d \
   --name dbk \
   --env-file .env \
   -v $(pwd)/pg_dumps:/pg_dumps \
-  -v $(pwd)/rclone.conf:/root/.config/rclone/rclone.conf \
-  --network db-network \
+  -v $(pwd)/rclone:/root/.config/rclone \
+  --network aztec_laravel-network \
   f4b1002/dbk:latest
 ```
 
