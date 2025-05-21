@@ -8,8 +8,6 @@ Automated backup for databases running in Docker containers, with support for cr
 
 This container periodically backs up PostgreSQL databases (or others, if adapted), saving dumps locally and/or sending them to remote destinations. The schedule is fully configurable via environment variable.
 
----
-
 ## How to Use
 
 ### 1. Prerequisites
@@ -19,7 +17,18 @@ This container periodically backs up PostgreSQL databases (or others, if adapted
 
 ---
 
-### 2. Using the published image
+### 2. rclone configuration (Google Drive / S3)
+
+To use Google Drive or S3 as backup destinations, you must provide a valid `rclone.conf` file with the necessary credentials. Learn how to generate your configuration file for Google Drive or/and S3 in the [official rclone documentation](https://rclone.org/docs/).
+
+- For Google Drive: [rclone Google Drive documentation](https://rclone.org/drive/)
+- For S3 (Amazon or compatible): [rclone S3 documentation](https://rclone.org/s3/)
+
+> **After generating your `rclone.conf`:** Keep your `rclone.conf` file in the same directory where you run your `docker run` or `docker compose` commands. This makes it easier to mount the file as a volume in your container, as shown in the usage examples below. The same file will be used in the next steps to enable backup to cloud providers.
+
+---
+
+### 3. Using the published image
 
 Pull the image from Docker Hub:
 
