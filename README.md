@@ -55,6 +55,14 @@ CRON_SCHEDULE=0 3 * * *
 WEBHOOK_URL=https://discord.com/api/webhooks/...
 ```
 
+#### Custom pg_dump options
+
+You can use the `PG_DUMP_EXTRA_OPTS` environment variable to pass custom options to `pg_dump`. For example, to dump only a specific schema, set:
+
+```env
+PG_DUMP_EXTRA_OPTS=-n "myschema"
+```
+
 #### Example directory structure
 
 Before running the container, your project directory should look like this:
@@ -113,6 +121,7 @@ docker compose build
 | GDRIVE_PATH     | Google Drive path                            | No          | `dumps`                                |
 | WEBHOOK_URL     | Discord webhook URL (notifications, optional) | No          | `https://discord.com/api/webhooks/...` |
 | DUMP_RETENTION_DAYS | Number of days to keep dumps (optional, default: 5) | No | `7` (default: 5) |
+| PG_DUMP_EXTRA_OPTS | Extra options to pass to pg_dump (e.g., `-n "myschema"`) | No | `-n "myschema"` |
 
 ---
 

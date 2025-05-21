@@ -49,6 +49,7 @@ PGPASSWORD=$DB_PASSWORD pg_dump \
   --no-owner \
   --create \
   --file "$DUMP_FILE" \
+  ${PG_DUMP_EXTRA_OPTS} \
   "$DB_NAME" 2>&1 | tee -a /var/log/pg_backup_error.log
 
 log "Dump concluído: $DUMP_FILE"
