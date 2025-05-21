@@ -36,6 +36,9 @@ DB_PASSWORD=secret
 DB_NAME=mydb
 DB_PORT=5432
 
+# Number of days to keep the dumps (optional, default: 5)
+DUMP_RETENTION_DAYS=
+
 S3_PATH=bucket_name/dumps # start with bucket name
 GDRIVE_PATH=dumps
 
