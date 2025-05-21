@@ -5,6 +5,7 @@
 
 # Gera o crontab dinamicamente
 echo "$CRON_SCHEDULE /scripts/pg_backup.sh >> /var/log/pg_backup.log 2>&1" >> /etc/crontabs/root
+
 chmod /etc/crontabs/root
 crontab /etc/crontabs/root
 

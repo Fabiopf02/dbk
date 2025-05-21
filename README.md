@@ -45,15 +45,15 @@ WEBHOOK_URL=https://discord.com/api/webhooks/...
 
 #### Run the backup container
 
-> **Important:** Replace `dbk-net` with your database network name.
+> **Important:** Replace `db-network` with your database network name.
 
 ```sh
 docker run -d \
   --name dbk \
   --env-file .env \
   -v $(pwd)/pg_dumps:/pg_dumps \
-  -v $(pwd)/restore:/restore \
-  --network dbk-net \
+  -v $(pwd)/rclone.conf:/root/.config/rclone \
+  --network db-network \
   f4b1002/dbk:latest
 ```
 

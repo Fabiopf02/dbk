@@ -4,9 +4,8 @@ services:
     build:
       context: .
     container_name: dbk
-    networks:
-      - backup
-
-networks:
-  backup:
-    driver: bridge
+    env_file:
+      - .env
+    volumes:
+      - ./rclone.conf:/root/.config/rclone/rclone.conf
+      - ./pg_dumps:/pg_dumps

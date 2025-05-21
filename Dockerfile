@@ -7,7 +7,6 @@ ENV TZ='America/Sao_Paulo'
 WORKDIR /scripts
 
 COPY pg_backup.sh .
-COPY rclone.conf /root/.config/rclone/rclone.conf
 
 RUN mkdir /pg_dumps
 
