@@ -77,7 +77,7 @@ docker run -d \
   --env-file .env \
   -v $(pwd)/pg_dumps:/pg_dumps \
   -v $(pwd)/rclone:/root/.config/rclone \
-  --network aztec_laravel-network \
+  --network db-network \
   f4b1002/dbk:latest
 ```
 
