@@ -88,6 +88,7 @@ docker compose build
 | S3_PATH         | S3 path                                      | No          | `bucket_name/dumps`                    |
 | GDRIVE_PATH     | Google Drive path                            | No          | `dumps`                                |
 | WEBHOOK_URL     | Discord webhook URL (notifications, optional) | No          | `https://discord.com/api/webhooks/...` |
+| DUMP_RETENTION_DAYS | Number of days to keep dumps (optional, default: 5) | No | `7` (default: 5) |
 
 ---
 

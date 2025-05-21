@@ -61,8 +61,9 @@ if [ -n "$GDRIVE_PATH" ]; then
   rclone copy "$DUMP_FILE" gdrive:"$GDRIVE_PATH"/ 2>&1 | tee -a /var/log/pg_backup_error.log
 fi
 
-# Limpa dumps antigos: 5 dias
-find /pg_dumps -type f -mtime +5 -name "pg_dump_*" -exec rm {} \;
+# Clean old dumps: Configurable value (default 5 days)
+RETENTION_DAYS="${DUMP_RETENTION_DAYS:-5}"
+find /pg_dumps -type f -mtime +$RETENTION_DAYS -name "pg_dump_*" -exec rm {} \;
 
 log "Limpeza de dumps antigos concluída."
 
