@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.21.3
 
 RUN apk add --no-cache postgresql-client rclone tzdata curl busybox-suid
 
