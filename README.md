@@ -19,7 +19,7 @@ This container periodically backs up PostgreSQL databases (or others, if adapted
 
 ### 2. rclone configuration (Google Drive / S3)
 
-To use Google Drive or S3 as backup destinations, you must provide a valid `rclone.conf` file with the necessary credentials. Learn how to generate your configuration file for Google Drive or/and S3 in the [official rclone documentation](https://rclone.org/docs/).
+To use Google Drive or S3 as backup destinations, you must provide a valid `rclone.conf` file with the necessary credentials. Learn how to generate your configuration file for Google Drive or/and S3 in the [official rclone documentation](https://rclone.org/docs/). For an example of how your file should look, see the [`rclone/rclone.example.conf`](https://github.com/Fabiopf02/dbk/blob/main/rclone/rclone.example.conf) file in this repository.
 
 - For Google Drive: [rclone Google Drive documentation](https://rclone.org/drive/)
 - For S3 (Amazon or compatible): [rclone S3 documentation](https://rclone.org/s3/)
@@ -53,6 +53,18 @@ GDRIVE_PATH=dumps
 
 CRON_SCHEDULE=0 3 * * *
 WEBHOOK_URL=https://discord.com/api/webhooks/...
+```
+
+#### Example directory structure
+
+Before running the container, your project directory should look like this:
+
+```text
+project-root/
+├── .env
+├── pg_dumps/
+└── rclone/
+    └── rclone.conf
 ```
 
 #### Run the backup container
